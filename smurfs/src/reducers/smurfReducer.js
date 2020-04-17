@@ -15,6 +15,10 @@ export const smurfReducer = (state = initialState, action) => {
         smurfs: action.payload,
         isFetching: false,
       };
+    case "SMURF_ADDER":
+      return {
+        ...state,
+      };
 
     default:
       return state;

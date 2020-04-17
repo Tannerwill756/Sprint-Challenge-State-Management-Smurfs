@@ -12,7 +12,14 @@ export const fetchData = () => (dispatch) => {
     });
 };
 
-export const addSmurf = () => (dispatch) => {
-  // axios
-  //     .post('http://localhost:3333/smurfs')
+export const addSmurf = (smurf) => (dispatch) => {
+  dispatch({ type: "SMURF_ADDER" });
+  axios
+    .post("http://localhost:3333/smurfs", smurf)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

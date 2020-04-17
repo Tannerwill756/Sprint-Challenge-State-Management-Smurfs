@@ -3,13 +3,18 @@ import { connect } from "react-redux";
 import { fetchData } from "../actions/index";
 
 const Smurfs = (props) => {
+  const fetchDataHandler = (e) => {
+    e.preventDefault();
+    props.fetchData();
+  };
   return (
     <div>
+      <button onClick={fetchDataHandler}>Checkout my smurfs</button>
       {props.smurfs.map((smurf) => (
         <div key={smurf.id}>
           <h2>{smurf.name}</h2>
-          <p>SMURF AGE</p>
-          <p>SMURF HEIGHT</p>
+          <p>Age: {smurf.age}</p>
+          <p>Height: {smurf.height}</p>
         </div>
       ))}
     </div>
